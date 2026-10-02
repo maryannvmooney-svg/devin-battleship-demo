@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Play Battleship against the computer in your browser.">
+  <meta name="theme-color" content="#0b2239">
+  <title>Battleship</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1><span aria-hidden="true">⚓</span> Battleship</h1>
+    <button id="restart-btn" class="btn btn-ghost" type="button">Restart</button>
+  </header>
+
+  <main>
+    <section class="status" aria-live="polite">
+      <p id="turn-indicator" class="turn-indicator" data-phase="placement">Place your ships</p>
+      <p id="message" class="message">Choose a ship, then tap the board to place it.</p>
+    </section>
+
+    <details id="instructions" class="instructions" open>
+      <summary>How to play</summary>
+      <ol>
+        <li><strong>Place your fleet.</strong> Pick a ship from the list, then click or tap a square on <em>Your fleet</em>. The ship starts on that square and extends right (horizontal) or down (vertical).</li>
+        <li><strong>Rotate</strong> with the Rotate button (or press <kbd>R</kbd>). Click a placed ship to pick it up and move it. Ships can't overlap or hang off the board. <strong>Random placement</strong> sets up the whole fleet for you.</li>
+        <li>Press <strong>Start battle</strong> when all five ships are placed: Carrier (5), Battleship (4), Cruiser (3), Submarine (3), Destroyer (2).</li>
+        <li><strong>Take turns firing.</strong> On your turn, click a square on <em>Enemy waters</em>. <span class="legend legend-hit">Red</span> is a hit, <span class="legend legend-miss">white dot</span> is a miss. You can't fire at the same square twice.</li>
+        <li>A ship sinks when every square of it is hit. Sink all five enemy ships before the computer sinks yours to win!</li>
+      </ol>
+    </details>
+
+    <div class="boards">
+      <section id="enemy-panel" class="panel" hidden>
+        <h2>Enemy waters</h2>
+        <div id="enemy-board" class="board" role="grid" aria-label="Enemy waters"></div>
+        <ul id="enemy-fleet" class="fleet-status" aria-label="Enemy fleet status"></ul>
+      </section>
+
+      <section id="player-panel" class="panel">
+        <h2>Your fleet</h2>
+        <div id="player-board" class="board" role="grid" aria-label="Your fleet"></div>
+        <ul id="player-fleet" class="fleet-status" aria-label="Your fleet status" hidden></ul>
+      </section>
+
+      <section id="placement-panel" class="panel controls">
+        <h2>Ships</h2>
+        <ul id="ship-roster" class="roster"></ul>
+        <div class="control-row">
+          <button id="rotate-btn" class="btn" type="button">Rotate: <span id="orientation-label">Horizontal</span></button>
+          <button id="random-btn" class="btn" type="button">Random placement</button>
+          <button id="clear-btn" class="btn btn-ghost" type="button">Clear</button>
+        </div>
+        <button id="start-btn" class="btn btn-primary btn-wide" type="button" disabled>Start battle</button>
+      </section>
+    </div>
+  </main>
+
+  <div id="game-over" class="overlay" hidden>
+    <div class="overlay-card" role="dialog" aria-modal="true" aria-labelledby="game-over-title">
+      <h2 id="game-over-title">You win!</h2>
+      <p id="game-over-detail"></p>
+      <div class="control-row">
+        <button id="play-again-btn" class="btn btn-primary" type="button">Play again</button>
+        <button id="view-boards-btn" class="btn btn-ghost" type="button">View boards</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <a href="https://github.com/maryannvmooney-svg/devin-battleship-demo">Source on GitHub</a>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
