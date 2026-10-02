@@ -21,10 +21,10 @@ These are the bugs actually found while building and testing this game, how each
 - **Fix:** The square size now subtracts all of those: `min(calc((100vw - 3rem - 22px) / 11), 34px)`.
 - **How the fix was checked:** I re-measured at 320px, 375px, and 390px. The panel now has equal 12–13px margins on both sides and there is no horizontal scrolling (`scrollWidth == clientWidth`). I also re-checked screenshots. A scripted full game at 390px width finished with no horizontal overflow.
 
-## Testing performed
+## Testing performed by Devin
 
 - **Automated tests** (`npm test`, Node's built-in test runner, 25 tests): ship placement (inside the board, off the board, overlapping, rotating, moving), random placement (300 random fleets checked), starting only once the fleet is complete, turn order, rejecting shots out of turn, rejecting repeated and off-board shots, hit/miss/sunk results, player win, computer win, restart, and the computer's behaviour (never repeats a shot, follows up next to a hit, continues along a line, goes back to searching after a sinking, far better than random, and has no access to the player's board).
-- **Manual browser testing** (Chrome on desktop, plus Chrome mobile emulation at 375px and 390px with touch input, recorded):
+- **Browser testing by Devin's testing agent** (Chrome on desktop, plus Chrome mobile emulation at 375px and 390px with touch input, recorded):
   - placement previews, rotation (button and `R` key), picking up and moving ships, Clear, Random placement, and the Start button staying disabled until all ships are placed;
   - the turn banner, clicks during the computer's turn being ignored, and the "already fired" message;
   - hit, miss, and sunk markings, and enemy ships staying hidden;
@@ -35,10 +35,20 @@ These are the bugs actually found while building and testing this game, how each
   No gameplay bugs were found in this pass.
 - **Scripted browser games** (Playwright driving the real page, using only what is visible on screen to choose shots): the player won one full game at desktop size (1280px) and one at mobile size (390px). Both showed the win dialog and all five enemy ships marked sunk. After each win, Restart returned the game to the placement screen. There were no JavaScript errors in the browser console.
 
+## Manual checks performed by the user (October 2, 2026)
+
+These checks were carried out by hand by the project owner, separately from Devin's testing above, and are recorded here as she reported them.
+
+- **Chrome on a Mac:** completed games, and confirmed that **Play again** cleared the previous game correctly.
+- **Safari on a Mac:** completed a game, and confirmed that **Restart** returned to ship placement with a cleared board.
+- **Real phone:** completed a game, and saw no usability problems.
+- The computer won all of these games. The owner has not personally checked the ending where the human wins.
+
 ## Remaining limitations (not bugs)
 
-- Browser testing used Chrome only, on desktop and with mobile emulation. It was not run on real phones, Safari, or Firefox.
-- On a 375px-wide phone, board squares are about 28px. That is smaller than the usual 44px recommendation for touch targets, because 11 columns (labels plus 10 squares) have to fit across the screen.
+- The ending where the human wins was seen only in Devin's scripted browser games. It has not been checked by hand.
+- The game has not been tested in Firefox. The phone model and phone browser used for the real-phone check were not recorded, so other phones and mobile browsers have not been confirmed.
+- On a 375px-wide phone, board squares are about 28px. That is smaller than the usual 44px recommendation for touch targets, because 11 columns (labels plus 10 squares) have to fit across the screen. The owner's real-phone check found no usability problems.
 - Screen-reader support (cell labels, announcements of the latest move) was added but not tested with an actual screen reader.
 - When ships touch, the computer can still occasionally guess wrong about which hits belonged to a sunk ship. Bug 1's fix keeps this from derailing it, but it can waste a few shots.
 - There is no saved game, sound, difficulty setting, or two-player mode.
