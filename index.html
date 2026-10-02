@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Play Battleship against the computer in your browser.">
-  <meta name="theme-color" content="#0b2239">
-  <title>Battleship</title>
+  <meta name="theme-color" content="#16303b">
+  <title>Battleship: San Francisco Bay Edition</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚓</text></svg>">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
-    <h1><span aria-hidden="true">⚓</span> Battleship</h1>
+    <div class="brand">
+      <h1><span aria-hidden="true">⚓</span> Battleship</h1>
+      <p class="subtitle">San Francisco Bay Edition</p>
+    </div>
     <button id="restart-btn" class="btn btn-ghost" type="button">Restart</button>
   </header>
 
@@ -27,7 +30,7 @@
         <li><strong>Place your fleet.</strong> Pick a ship from the list, then click or tap a square on <em>Your fleet</em>. The ship starts on that square and extends right (horizontal) or down (vertical).</li>
         <li><strong>Rotate</strong> with the Rotate button (or press <kbd>R</kbd>). Click a placed ship to pick it up and move it. Ships can't overlap or hang off the board. <strong>Random placement</strong> sets up the whole fleet for you.</li>
         <li>Press <strong>Start battle</strong> when all five ships are placed: Carrier (5), Battleship (4), Cruiser (3), Submarine (3), Destroyer (2).</li>
-        <li><strong>Take turns firing.</strong> On your turn, click a square on <em>Enemy waters</em>. <span class="legend legend-hit">Red</span> is a hit, <span class="legend legend-miss">white dot</span> is a miss. You can't fire at the same square twice.</li>
+        <li><strong>Take turns firing.</strong> On your turn, click a square on <em>Enemy waters</em>. <span class="legend legend-hit">Orange</span> is a hit, <span class="legend legend-miss">white dot</span> is a miss. You can't fire at the same square twice.</li>
         <li>A ship sinks when every square of it is hit. Sink all five enemy ships before the computer sinks yours to win!</li>
       </ol>
     </details>
