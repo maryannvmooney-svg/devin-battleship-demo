@@ -41,13 +41,13 @@ These checks were carried out by hand by the project owner, separately from Devi
 
 - **Chrome on a Mac:** completed games, and confirmed that **Play again** cleared the previous game correctly.
 - **Safari on a Mac:** completed a game, and confirmed that **Restart** returned to ship placement with a cleared board.
-- **Real phone:** completed a game, and saw no usability problems.
+- **Real phone (iPhone):** completed a game, and saw no usability problems.
 - The computer won all of these games. The owner has not personally checked the ending where the human wins.
 
 ## Remaining limitations (not bugs)
 
 - The ending where the human wins was seen only in Devin's scripted browser games. It has not been checked by hand.
-- The game has not been tested in Firefox. The phone model and phone browser used for the real-phone check were not recorded, so other phones and mobile browsers have not been confirmed.
+- The game has not been tested in Firefox. The real-phone check was on an iPhone; the browser used was not recorded, and Android phones have not been confirmed.
 - On a 375px-wide phone, board squares are about 28px. That is smaller than the usual 44px recommendation for touch targets, because 11 columns (labels plus 10 squares) have to fit across the screen. The owner's real-phone check found no usability problems.
 - Screen-reader support (cell labels, announcements of the latest move) was added but not tested with an actual screen reader.
 - When ships touch, the computer can still occasionally guess wrong about which hits belonged to a sunk ship. Bug 1's fix keeps this from derailing it, but it can waste a few shots.
