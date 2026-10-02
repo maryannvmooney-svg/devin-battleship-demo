@@ -15,7 +15,7 @@
   --ok: #3fbf7f;
   --bad: #e5484d;
   --accent: #f5b83d;
-  --cell: min(calc((100vw - 3rem) / 11), 34px);
+  --cell: min(calc((100vw - 3rem - 22px) / 11), 34px);
   --radius: 10px;
   color-scheme: dark;
 }
