@@ -1,20 +1,21 @@
 :root {
-  --bg: #071a2c;
-  --bg-2: #0b2239;
-  --panel: #10304d;
-  --panel-border: #1d4a70;
-  --text: #e8f1fa;
-  --muted: #9fb7cc;
-  --water: #1a5a8a;
-  --water-hover: #2672aa;
-  --ship: #8a9bab;
-  --ship-border: #c3cfda;
-  --hit: #e5484d;
-  --miss: #f2f6fa;
-  --sunk: #6d1f24;
-  --ok: #3fbf7f;
-  --bad: #e5484d;
-  --accent: #f5b83d;
+  --bg: #0e1d26;
+  --bg-2: #16303b;
+  --panel: #14303c;
+  --panel-border: #2b5566;
+  --text: #eef3f5;
+  --muted: #a9bec7;
+  --water: #2a6f86;
+  --water-hover: #3a87a0;
+  --ship: #9aa5ab;
+  --ship-border: #cfd6da;
+  --hit: #c0362c;
+  --miss: #eef3f5;
+  --sunk: #6b2420;
+  --ok: #5fb57a;
+  --bad: #c0362c;
+  --hit-text: #ef6a4c;
+  --accent: #f2b84b;
   --cell: min(calc((100vw - 3rem - 22px) / 11), 34px);
   --radius: 10px;
   color-scheme: dark;
@@ -26,7 +27,9 @@ html, body { margin: 0; }
 
 body {
   min-height: 100vh;
-  background: radial-gradient(circle at top, var(--bg-2), var(--bg) 70%);
+  background:
+    radial-gradient(ellipse 120% 45% at top, rgba(238, 243, 245, 0.08), transparent 70%),
+    radial-gradient(circle at top, var(--bg-2), var(--bg) 70%);
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.45;
@@ -53,6 +56,7 @@ main {
 }
 
 .topbar h1 { margin: 0; font-size: clamp(1.4rem, 4vw, 2rem); letter-spacing: 0.02em; }
+.subtitle { margin: 0.1rem 0 0; color: var(--accent); font-size: clamp(0.8rem, 2.5vw, 0.95rem); font-weight: 600; letter-spacing: 0.06em; }
 
 h2 { margin: 0 0 0.6rem; font-size: 1.05rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
@@ -187,7 +191,7 @@ kbd { background: var(--bg); border: 1px solid var(--panel-border); border-radiu
   background: var(--bg);
   border: 1px solid var(--panel-border);
 }
-.fleet-status li.sunk { text-decoration: line-through; color: var(--hit); border-color: var(--hit); }
+.fleet-status li.sunk { text-decoration: line-through; color: var(--hit-text); border-color: var(--hit); }
 
 .controls { width: min(100%, 340px); }
 .controls[hidden] { display: none; }
@@ -236,7 +240,7 @@ kbd { background: var(--bg); border: 1px solid var(--panel-border); border-radiu
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(3, 12, 22, 0.75);
+  background: rgba(6, 14, 19, 0.78);
   display: flex;
   align-items: center;
   justify-content: center;
